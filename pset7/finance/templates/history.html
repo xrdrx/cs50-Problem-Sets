@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table>
+        <tr>
+            <th>TIME</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Shares</th>
+        </tr>
+        <tr>
+            <td>
+                {% for stock in stocks %}
+                    <p>{{stock['timestamp']}}</p>
+                {% endfor %}
+            </td>
+            <td>{% for stock in stocks %}
+                    <p>{{stock['symbol']}}</p>
+                {% endfor %}
+            </td>
+            <td>{% for stock in stocks %}
+                    <p>${{stock['price'] | round(2)}}</p>
+                {% endfor %}
+            </td>
+            <td>{% for stock in stocks %}
+                    <p>{{stock['shares']}}</p>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}
